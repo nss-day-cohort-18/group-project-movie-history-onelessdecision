@@ -1,6 +1,7 @@
 "use strict";
 
-let user = require("./user.js");
+let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
+	user = require("./user.js");
 
 
 /////////////////////////
