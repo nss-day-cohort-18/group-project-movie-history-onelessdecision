@@ -4,9 +4,9 @@
 
 function getKey() {
   return {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: ""
+    apiKey: " AIzaSyB_YuUHbsQOXpU9fhBK2ep5eWxfLvg78XY",
+    authDomain: "group-project-b2ed0.firebaseio.com/",
+    databaseURL: "https://group-project-b2ed0.firebaseio.com/"
   };
 }
 
