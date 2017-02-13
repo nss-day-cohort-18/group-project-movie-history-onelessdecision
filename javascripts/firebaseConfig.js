@@ -1,6 +1,4 @@
 // This file allows us to connect to firebase using data stored in firebaseGetter.js
-
-
 "use strict";
 
 let firebase = require("firebase/app"),
