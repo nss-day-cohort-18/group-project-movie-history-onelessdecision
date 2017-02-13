@@ -1,19 +1,22 @@
 // This file allows us to connect to firebase using data stored in firebaseGetter.js
-"use strict";
 
-let firebase = require("firebase/app"),
-    fb = require("./fb-getter"),
-    fbData = fb();
 
-require("firebase/auth");
-require("firebase/database");
 
-var config = {
-  apiKey: fbData.apiKey,
-  databaseURL: fbData.databaseURL,
-  authDomain: fbData.authDomain
-};
+// "use strict";
 
-firebase.initializeApp(config);
+// let firebase = require("firebase/app"),
+//     fb = require("./firebaseGetter"),
+//     fbData = fb();
 
-module.exports = firebase;
+// // require("firebase/auth");
+// // require("firebase/database");
+
+// var config = {
+//   apiKey: fbData.apiKey,
+//   databaseURL: fbData.databaseURL,
+//   authDomain: fbData.authDomain
+// };
+
+// firebase.initializeApp(config);
+
+// module.exports = firebase;

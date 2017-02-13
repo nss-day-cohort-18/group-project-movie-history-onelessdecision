@@ -16,7 +16,8 @@ let userArray = [];
 //      MODULES		//
 //////////////////////
 
-let user = require("./user.js"),
+let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
+	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
 	fbGetter = require("./firebaseGetter.js"),
 	dom = require("./domBuilder.js"),
@@ -28,7 +29,7 @@ let user = require("./user.js"),
 //LOAD SPLASH PAGE //
 /////////////////////
 
-user.logout();
+// user.logout();
 // load DOM
 // if (new user or historical user with no movies)
 // 	DOM wrapper displays a message asking user to search and add movies
@@ -44,61 +45,61 @@ user.logout();
 
 
 //find new button
-$("#find-new").click()=>{
+$("#find-new").click(()=>{
 	console.log('you clicked find-new');
 	let title = $("#find-new").val();
 	omdb.findMovies(title);
 	// .then()
 
-}
+});
 
 //search your movies button
-$("#search-your").click()=>{
+$("#search-movies").click(()=>{
 	console.log("you clicked on search your movies");
-}
+});
 
 
 //login
-$("#login").click()=>{
+$("#login").click(()=>{
 	console.log('you clicked login');
 	//user.logInGoolge();
 	$("#login").addClass("hide");
     $("#logout").removeClass("hide");
-}
+});
 
 //logout
-$("#logout").click()=>{
+$("#logout").click(()=>{
 	console.log('you clicked on logout');
 	$("#logout").addClass("hide");
     $("#login").removeClass("hide");
-}
+});
 
 //show watched
-$("#show-watchlist").click(){
+$("#watched").click(()=>{
 	console.log('you clicked on show-watched');
-}
+});
 
 //show unwatched
-$("#show-unwatched").click(){
+$("#unwatched").click(()=>{
 	console.log('you clicked on show-unwatched');
-}
+});
 
 //add to watchlist
-$(document).on("click", ".add-to-watchlist" function(){
+$(document).on("click", ".add-to-watchlist", function(){
 	console.log('you clicked on add to watchlist');
-})
+});
 
 //mark as watched
 $(document).on("click", ".watched", function(){
 	console.log('you clicked on watched');
-})
+});
 
 
 
 //stars
 $(document).on("click", ".stars", function(){
 	console.log('you clicked on a star');
-})
+});
 
 
 
@@ -106,5 +107,5 @@ $(document).on("click", ".stars", function(){
 //BUILD MOVIE OBJECT//
 //////////////////////
 
-build movie object
-	sends info to firebase to store (userid, movie title, year, actors, watched boolean, rating[if applicable] )
+// build movie object
+// 	sends info to firebase to store (userid, movie title, year, actors, watched boolean, rating[if applicable] )
