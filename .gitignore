@@ -1,5 +1,5 @@
 lib/.sass-cache
 .DS_Store
 dist/
-
+javascripts/firebaseGetter.js
 lib/node_modules
