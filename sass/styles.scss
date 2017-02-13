@@ -1,0 +1,45 @@
+@import 'reset';
+
+$primary-font-stack: 'Arvo', 'Open Sans', serif;
+$secondary-font-stack: 'Oswald', 'Source Sans Pro', sans-serif;
+$primary-color: #2E4172;
+$secondary-color: #001952;
+$third-color: #929292;
+$link-color: #5B6782;
+
+div.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+ul.title {
+  margin: 0;
+  list-style: none;
+  font-size: 4vw;
+  transform-style: preserve-3d;
+  animation: three-dimensions-circle 30s linear infinite;
+}
+li.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+@for $i from 1 through 12 {
+  li.title:nth-child(#{$i}) {
+    transform: translate(-50%, -50%) rotate(#{$i * 30 - 30}deg) translateY(-260px) rotateX(90deg);
+  }
+}
+@keyframes three-dimensions-circle {
+  0% {
+    transform: rotateX(-100deg) rotate(0);
+  }
+  100% {
+    transform: rotateX(-100deg) rotate(-360deg);
+  }
+}
+
+
+
+
