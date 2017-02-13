@@ -5,6 +5,8 @@
 	<title>Movie History</title>
 
 <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans|Oswald|Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -12,34 +14,39 @@
 		<button type="button" id="search-movies" class="btn btn-default navbar-btn">Search My Movies</button>
 		<button type="button" id="login" class="btn btn-default navbar-btn navbar-right">Login/Register</button>
 	</nav>
-
-	<h2>Movie History</h2>
+	<header>
+		<h1>Movie History</h1>
+		<img src="images/cameraImage.jpg" alt="Image of a Movie Camera" width="100%">
+	</header>
 
 	<div>
 		<button type="button" id="unwatched" class="btn btn-default">Show Unwatched</button>
 		<button type="button" id="watched" class="btn btn-default">Show Watched</button>
 	</div>
-
 	<div class="container-fluid" id="card-area">
-		
 		<div id="card-1" class="col-lg-4 card">
 			<button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button>
 			<button type="button" class="btn btn-default watched">Watched</button>
 		</div>
 
 
-		<div id="card-2" class="col-lg-4 card"></div>
+		<!-- <div id="card-2" class="col-lg-4 card"></div>
 
 
 		<div id="card-3" class ="col-lg-4 card">
 			<h4> ${movie.name} </h4>
-			<!-- <img class = "thumbnail img-responsive" src="${movie.img}"> -->
+			<img class = "thumbnail img-responsive" src="${movie.img}">
 			<p> ${movie.actors} </p>
 			<p> <small> ${movie.year} </small> </p>
-		</div>
+		</div> -->
 
 	</div>
-<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="dist/app.js"></script>
+
+
+
+	<script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"</script>
+  <script type="text/javascript" src="dist/app.js"></script>
+
 </body>
 </html>
