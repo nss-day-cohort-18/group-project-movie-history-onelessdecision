@@ -51,23 +51,22 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 /////////////////////
 
 
-omdb.findMovies("batman")
-.then((movieData)=>{
 
 //Music History > {view}
 
-
-	(console.log('movieData:', movieData));
-	omdb.parseMovies(movieData)
-	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
-
-});
-
 //enterpress from search-input field
-$("#text").keypress(function(e) {
+$("#search-input").keypress(function(e) {
     if(e.which == 13) {
         console.log("You pressed enter!");
-    }
+        let title = $(this).val();
+        omdb.findMovies(title)
+		.then((movieData)=>{
+		(console.log('movieData:', movieData));
+		omdb.parseMovies(movieData)
+		.then((moviesObject)=>console.log('moviesObject returned form parseMovies:', moviesObject));
+
+	});
+  }
 });
 
 //login
