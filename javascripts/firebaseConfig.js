@@ -3,6 +3,7 @@
 
 // "use strict";
 
+
 // let firebase = require("firebase/app"),
 //     fb = require("./firebaseGetter"),
 //     fbData = fb();
