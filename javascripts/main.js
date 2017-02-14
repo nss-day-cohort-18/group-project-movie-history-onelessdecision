@@ -50,9 +50,18 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
+omdb.findMovies("batman")
+.then((movieData)=>{
 
 
 //Music History > {view}
+
+
+	(console.log('movieData:', movieData));
+	omdb.parseMovies(movieData)
+	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
+
+});
 
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
@@ -79,20 +88,24 @@ $("#login").click(()=>{
 
 //logout
 $("#logout").click(()=>{
-	console.log('you clicked on logout');
-	$("#logout").addClass("hide");
-    $("#login").removeClass("hide");
+	$("#logout").addClass(".hidden");
+    $("#login").removeClass(".hidden");
+
 });
 
 //show untracked
-$("#untracked").on("click", "#watched", function(){
+$("#untracked").click(()=>{
+	console.log("you clicked untracked");
 	$("#music-history").html("Movie History > Untracked");
+	$("#untracked").toggleClass("active");
+	//hide .row
 });
 
 //show to watch
 $("#to-watch").click(()=>{
 	console.log('you clicked on show to watch');
 	$("#music-history").html("Movie History > To Watch");
+	// $("#to-watch").toggleClass("active");
 });
 
 //show watched
@@ -105,21 +118,27 @@ $("#watched").click(()=>{
 $("#favorites").click(()=>{
 	console.log('you clicked on favorites');
 	$("#music-history").html("Movie History > Favorites");
+	
+
 });
 
 //add to watchlist
 $(document).on("click", ".add-to-watchlist", function(){
 	console.log('you clicked on add to watchlist');
+	$(this).gparent(2).addClass("unwatched").removeClass("watched");
 });
 
-//mark as watched
-$(document).on("click", ".watched", function(){
-	console.log('you clicked on watched');
-});
+// //mark as watched
+// $(document).on("click", ".watched", function(){
+// 	console.log('you clicked on watched');
+// 	$(this).gparent(2).addClass("watched").removeClass("unwatched");
+// });
 
 //stars
-$(document).on("click", ".stars", function(){
+$(document).on("click", ".rating", function(){
 	console.log('you clicked on a star');
+	console.log($(this));
+	$(this).gparent(3).addClass("watched").removeClass("unwatched");
 });
 
 
