@@ -10,6 +10,7 @@
 //////////////////////
 // GLOBAL VARIABLES //
 //////////////////////
+console.log('something is happening');
 
 let userArray = [];
 
@@ -49,8 +50,18 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
+
+omdb.findMovies("batman")
+.then((movieData)=>{
+
 //Music History > {view}
 
+
+	(console.log('movieData:', movieData));
+	omdb.parseMovies(movieData)
+	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
+
+});
 
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
