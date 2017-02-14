@@ -3,4 +3,5 @@ lib/.sass-cache
 dist/
 css/
 javascripts/firebaseGetter.js
+javascripts/tmdb-getter.js
 lib/node_modules
