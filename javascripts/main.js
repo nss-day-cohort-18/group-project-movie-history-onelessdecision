@@ -6,6 +6,7 @@
 // 		This file sends movie data gleaned from user input to firebase (Build Movie Object).
 
 "use strict";
+
 //////////////////////
 // GLOBAL VARIABLES //
 //////////////////////
@@ -16,10 +17,10 @@ let userArray = [];
 //      MODULES		//
 //////////////////////
 
-let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
+let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
-	fbGetter = require("./firebaseGetter.js"),
+	// fbGetter = require("./firebaseGetter.js"),
 	dom = require("./domBuilder.js"),
 	fb = require("./firebaseInteraction.js"),
 	omdb = require("./omdbInteraction/");
@@ -29,6 +30,12 @@ let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
 //LOAD SPLASH PAGE //
 /////////////////////
 
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     console.log(error.Message);
+
+// });
 // user.logout();
 // load DOM
 // if (new user or historical user with no movies)
@@ -42,22 +49,15 @@ let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
+//Music History > {view}
 
 
-//find new button
-$("#find-new").click(()=>{
-	console.log('you clicked find-new');
-	let title = $("#find-new").val();
-	omdb.findMovies(title);
-	// .then()
-
+//enterpress from search-input field
+$("#search-input").keypress(function(e) {
+    if(e.which == 13) {
+        console.log("You pressed enter!");
+    }
 });
-
-//search your movies button
-$("#search-movies").click(()=>{
-	console.log("you clicked on search your movies");
-});
-
 
 //login
 $("#login").click(()=>{
@@ -74,14 +74,27 @@ $("#logout").click(()=>{
     $("#login").removeClass("hide");
 });
 
+//show untracked
+$(document).on("click", "#watched", function(){
+	$("#music-history").html("Movie History > Untracked");
+});
+
+//show to watch
+$("#to-watch").click(()=>{
+	console.log('you clicked on show to watch');
+	$("#music-history").html("Movie History > To Watch");
+});
+
 //show watched
 $("#watched").click(()=>{
 	console.log('you clicked on show-watched');
+	$("#music-history").html("Movie History > Watched");
 });
 
-//show unwatched
-$("#unwatched").click(()=>{
-	console.log('you clicked on show-unwatched');
+//show favorites
+$("#favorites").click(()=>{
+	console.log('you clicked on favorites');
+	$("#music-history").html("Movie History > Favorites");
 });
 
 //add to watchlist
@@ -93,8 +106,6 @@ $(document).on("click", ".add-to-watchlist", function(){
 $(document).on("click", ".watched", function(){
 	console.log('you clicked on watched');
 });
-
-
 
 //stars
 $(document).on("click", ".stars", function(){
