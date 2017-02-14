@@ -8,8 +8,43 @@ $third-color: #929292;
 $link-color: #5B6782;
 
 
-header {
+////////////////////
+// GENERAL STYLES //
+////////////////////
+
+.btn {
+  color: $primary-color;
+  border: 1px solid $secondary-color;
+}
+
+button.navbar-right {
+	margin-right: 20px;
+}
+
+.input-group {
+	margin-top: 8px;
+}
+
+////////////////////////
+//     FOR HIDING     //
+////////////////////////
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+////////////////////////
+//   SPLASH STYLING   //
+////////////////////////
+
+header#splash {
   text-align: center;
+}
+
+#splash img {
+  opacity: 0.5;
+  border-radius: 70%
 }
 
 h1 {
@@ -18,16 +53,38 @@ h1 {
   font-size: 5em;
 }
 
-img {
-  opacity: 0.5;
-  border-radius: 70%
+///////////////////////////
+//   LOGGED IN STYLING   //
+///////////////////////////
+
+.input-group {
+	margin-left: 10px;
 }
 
-.btn {
-  color: $primary-color;
-  border: 1px solid $secondary-color;
+.list-group button {
+	display: inline-block;
 }
 
-.navbar-right {
-  margin-right:2px
+h2 {
+	margin-left: 15px;
 }
+
+	//////////////////
+	// RATING STARS //
+	//////////////////
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+

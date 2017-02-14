@@ -9,38 +9,83 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<button type="button" id="find-new" class="btn btn-default navbar-btn">Find Movies</button>
-		<button type="button" id="search-movies" class="btn btn-default navbar-btn">Search My Movies</button>
-		<button type="button" id="login" class="btn btn-default navbar-btn navbar-right">Login/Register</button>
+	<nav class="navbar navbar-default">	
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search OMDB and your tracked movies. . ." id="search-input">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					</span>
+				</div>
+			</div>
+			<button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+		</div>
+		
 	</nav>
-	<header>
+	<header class="hidden" id="splash">
 		<h1>Movie History</h1>
 		<img src="images/cameraImage.jpg" alt="Image of a Movie Camera" width="100%">
 	</header>
-
-	<div>
-		<button type="button" id="unwatched" class="btn btn-default">Show Unwatched</button>
-		<button type="button" id="watched" class="btn btn-default">Show Watched</button>
-	</div>
-	<div class="container-fluid" id="card-area">
-		<div id="card-1" class="col-lg-4 card">
-			<button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button>
-			<button type="button" class="btn btn-default watched">Watched</button>
+	<header id="registeredHeader">
+		<h2>Movie History ></h2>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li class="active" ><a id="untracked">Show Untracked</a></li>
+					<li><a id="to-watch">Show Unwatched</a></li>
+					<li><a id="watched">Show Watched</a></li>
+					<li><a id="favorites">Show Favorites</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="container-fluid" id="wrapper">
+		<div id="container">
+			<div class="row">
+				<div class="thumbnail col-sm-6 col-md-4">
+				<img src="./images/moviePoster.jpg" alt="...">
+					<div class="caption">
+						<h3>The Million Dollar Duck</h3>
+						<p>Professor Dooley takes home a duck from his research laboratory as a toy for his son, but soon finds out that it lays golden eggs.</p>
+						<p>Dean Jones, Sandy Duncan, and Joe Flynn</p>
+						<p>1971</p>
+						<p><button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button></p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+				<div class="thumbnail col-sm-6 col-md-4">
+				<img src="./images/moviePoster.jpg" alt="...">
+					<div class="caption">
+						<h3>The Million Dollar Duck</h3>
+						<p>Professor Dooley takes home a duck from his research laboratory as a toy for his son, but soon finds out that it lays golden eggs.</p>
+						<p>Dean Jones, Sandy Duncan, and Joe Flynn</p>
+						<p>1971</p>
+						<p><button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button></p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+				<div class="thumbnail col-sm-6 col-md-4">
+				<img src="./images/moviePoster.jpg" alt="...">
+					<div class="caption">
+						<h3>The Million Dollar Duck</h3>
+						<p>Professor Dooley takes home a duck from his research laboratory as a toy for his son, but soon finds out that it lays golden eggs.</p>
+						<p>Dean Jones, Sandy Duncan, and Joe Flynn</p>
+						<p>1971</p>
+						<p><button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button></p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+ 			</div>
 		</div>
-
-
-		<!-- <div id="card-2" class="col-lg-4 card"></div>
-
-
-		<div id="card-3" class ="col-lg-4 card">
-			<h4> ${movie.name} </h4>
-			<img class = "thumbnail img-responsive" src="${movie.img}">
-			<p> ${movie.actors} </p>
-			<p> <small> ${movie.year} </small> </p>
-		</div> -->
-
 	</div>
+		
 	<script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="dist/app.js"></script>
