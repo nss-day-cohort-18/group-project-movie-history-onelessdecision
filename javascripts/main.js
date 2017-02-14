@@ -24,7 +24,7 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	// fbGetter = require("./firebaseGetter.js"),
 	dom = require("./domBuilder.js"),
 	fb = require("./firebaseInteraction.js"),
-	omdb = require("./omdbInteraction/");
+	omdb = require("./omdbInteraction.js");
 
 
 /////////////////////
@@ -57,13 +57,11 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
     if(e.which == 13) {
-        console.log("You pressed enter!");
-        let title = $(this).val();
-        omdb.findMovies(title)
+        omdb.findMovies($(this).val())
 		.then((movieData)=>{
-		(console.log('movieData:', movieData));
+		console.log('movieData passed to parse:', movieData);
 		omdb.parseMovies(movieData)
-		.then((moviesObject)=>console.log('moviesObject returned form parseMovies:', moviesObject));
+		.then((moviesArray)=>{});
 
 	});
   }

@@ -15,61 +15,36 @@ function findMovies(titleParameter) {
 	return new Promise((resolve, reject)=>{
 		console.log('calling to omdb');
 		$.ajax({
-			// url: `http://www.omdbapi.com/?t="${titleParameter}"`
-			url: `./rambo.json`
+			url: `https://api.themoviedb.org/3/search/movie?api_key=abd89fc957e293be8947e9a9ac9187bc&language=en-US&query=${titleParameter}&page=1&include_adult=false` 			
 		}).done((movieData)=>{
+			console.log('movieData recieved:', movieData);
 			resolve(movieData);
 		}).fail((error)=>reject(error));
 	});
 }
 
-//for one movie
-function parseMovie(movieData){
-	console.log('movieData');
-	return new Promise((resolve, reject)=>{
 
-	let movieObject = {
-
-		title : movieData.Title,
-		poster : movieData.Poster,
-		plot : movieData.Plot,
-		actors : movieData.Actors.split(`,`),
-		year : movieData.Year,
-		imdbid : movieData.imdbid
-	};
-
-	console.log('movieobject in parseMovie:', movieObject);
-	resolve(movieObject);
-
-  });
-}
-
-//work for multiple movies
 function parseMovies(movieData) {
-	console.log('parseMovie starts');
 
 	return new Promise((resolve, reject)=>{
 
 	let moviesArray = [],
-		moviesObject = {};
+		moviesObject = {},
+		results = movieData.results;
 
-	Object.keys(movieData).forEach((movie)=> {
+		results.forEach((movie)=> {
 
 			moviesObject = {
 
-				title : movieData[movie].Title,
-				poster : movieData[movie].Poster,
-				plot : movieData[movie].Plot,
-				actors : movieData[movie].Actors.split(`,`),
-				year : movieData[movie].Year,
-				imdbid : movieData[movie].imdbid
+				poster : movie.poster_path,
+				title : movie.title,
+				id : movie.id
 		};
 		moviesArray.push(moviesObject);
 	});
-		console.log('moviesObject', moviesObject);
-		console.log('moviesArray', moviesArray);
+		console.log('moviesArray passed from parser:', moviesArray);
 		resolve(moviesArray);
 	});
 }
 
-module.exports = {findMovies, parseMovie, parseMovies};
+module.exports = {findMovies, parseMovies};
