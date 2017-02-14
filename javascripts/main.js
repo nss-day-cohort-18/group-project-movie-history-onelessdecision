@@ -64,7 +64,7 @@ omdb.findMovies("batman")
 });
 
 //enterpress from search-input field
-$("#search-input").keypress(function(e) {
+$("#text").keypress(function(e) {
     if(e.which == 13) {
         console.log("You pressed enter!");
     }
@@ -86,7 +86,7 @@ $("#logout").click(()=>{
 });
 
 //show untracked
-$(document).on("click", "#watched", function(){
+$("#untracked").on("click", "#watched", function(){
 	$("#music-history").html("Movie History > Untracked");
 });
 
