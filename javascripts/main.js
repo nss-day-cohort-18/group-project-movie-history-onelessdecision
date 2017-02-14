@@ -9,6 +9,7 @@
 //////////////////////
 // GLOBAL VARIABLES //
 //////////////////////
+console.log('something is happening');
 
 let userArray = [];
 
@@ -19,7 +20,7 @@ let userArray = [];
 let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
 	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
-	fbGetter = require("./firebaseGetter.js"),
+	// fbGetter = require("./firebaseGetter.js"),
 	dom = require("./domBuilder.js"),
 	fb = require("./firebaseInteraction.js"),
 	omdb = require("./omdbInteraction/");
@@ -42,7 +43,14 @@ let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
+omdb.findMovies("batman")
+.then((movieData)=>{
 
+	(console.log('movieData:', movieData));
+	omdb.parseMovies(movieData)
+	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
+
+});
 
 //find new button
 $("#find-new").click(()=>{
