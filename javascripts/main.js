@@ -18,7 +18,7 @@ let userArray = [];
 //      MODULES		//
 //////////////////////
 
-let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
+let $ = require("jquery"),
 	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
 	// fbGetter = require("./firebaseGetter.js"),
@@ -79,15 +79,15 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 //login
 $("#login").click(()=>{
 	console.log('you clicked login');
-	//user.logInGoolge();
-	$("#login").addClass("hide");
-    $("#logout").removeClass("hide");
+	user.logInGoogle();  
 });
 
-//logout
+// //logout
 $("#logout").click(()=>{
-	$("#logout").addClass(".hidden");
-    $("#login").removeClass(".hidden");
+	console.log('you clicked logout');
+	user.logOut();
+	$("#logout").addClass("hidden");
+    $("#login").removeClass("hidden");
 
 });
 
