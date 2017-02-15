@@ -18,7 +18,7 @@ let userArray = [];
 //      MODULES		//
 //////////////////////
 
-let $ = require("jquery"),
+let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
 	// fbGetter = require("./firebaseGetter.js"),

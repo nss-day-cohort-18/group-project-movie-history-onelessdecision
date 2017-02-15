@@ -4,12 +4,12 @@
 "use strict";
 
 
-let firebase = require("firebase/app"),
+let firebase = require("../lib/node_modules/firebase/app.js"),
     fb = require("./firebaseGetter"),
     fbData = fb();
 
-require("firebase/auth");
-require("firebase/database");
+require("../lib/node_modules/firebase/auth.js");
+require("../lib/node_modules/firebase/database.js");
 
 var config = {
   apiKey: fbData.apiKey,
