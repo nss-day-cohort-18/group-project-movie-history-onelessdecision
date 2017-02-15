@@ -8,6 +8,17 @@ $third-color: #929292;
 $link-color: #5B6782;
 
 
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////
 // GENERAL STYLES //
 ////////////////////
@@ -87,4 +98,21 @@ h2 {
    content: "\2605";
    position: absolute;
 }
+
+/////////// ratings slider
+
+.ratings-bar-div{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+#ratings-bar {
+  margin: 3em 0;
+}
+
+
+
+
+
 
