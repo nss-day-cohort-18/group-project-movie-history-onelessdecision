@@ -96,8 +96,8 @@ $("#untracked").click((event)=>{
 	event.preventDefault();
 	console.log("you clicked untracked");
 	$("#music-history").html("Movie History > Untracked");
-	$("#untracked").toggleClass("active");
-	//hide .row
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //show unwatched
@@ -105,7 +105,8 @@ $("#to-watch").click((event)=>{
 	event.preventDefault();
 	console.log('you clicked on show to watch');
 	$("#music-history").html("Movie History > To Watch");
-	// $("#to-watch").toggleClass("active");
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //show watched
@@ -113,6 +114,8 @@ $("#watched").click((event)=>{
 	event.preventDefault();
 	console.log('you clicked on show-watched');
 	$("#music-history").html("Movie History > Watched");
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //show favorites
@@ -120,6 +123,8 @@ $("#favorites").click((event)=>{
 	event.preventDefault();
 	console.log('you clicked on favorites');
 	$("#music-history").html("Movie History > Favorites");
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //add to watchlist
