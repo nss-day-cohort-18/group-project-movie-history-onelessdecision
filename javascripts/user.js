@@ -1,25 +1,38 @@
-// "use strict";
+"use strict";
 
-// let firebase = require("./firebaseConfig"),
-// 	provider = new firebase.auth.GoogleAuthProvider(),
-// 	currentUser = null;
+let $ = require("jquery"),
+	firebase = require("./firebaseConfig"),
+	provider = new firebase.auth.GoogleAuthProvider(),
+	currentUser = null;
 
-// firebase.auth().onAuthStateChanged(user => user ? currentUser = user.uid : currentUser = null);
 
-// function logInGoogle() {
-// 	return firebase.auth().signInWithPopup(provider);
-// }
+firebase.auth().onAuthStateChanged(function(user){
+	if (user){
+		currentUser = user.uid;
+		console.log("currentUser logged in", currentUser);
+		$("#login").addClass("hidden");
+		$("#logout").removeClass("hidden");
 
-// function logOut(){
-// 	return firebase.auth().signOut();
-// }
+	} else {
+		currentUser = null;
+		console.log("currentUser not logged in");
+	}
+});
 
-// function getUser() {
-// 	return currentUser;
-// }
+function logInGoogle() {
+	return firebase.auth().signInWithPopup(provider);
+}
 
-// function setUser(val){
-// 	currentUser = val;
-// }
+function logOut(){
+	return firebase.auth().signOut();
+}
 
-// module.exports = {logInGoogle, logOut, getUser, setUser};
+function getUser() {
+	return currentUser;
+}
+
+function setUser(val){
+	currentUser = val;
+}
+
+module.exports = {logInGoogle, logOut, getUser, setUser};

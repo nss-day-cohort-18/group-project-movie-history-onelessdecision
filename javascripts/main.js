@@ -18,7 +18,7 @@ let userArray = [];
 //      MODULES		//
 //////////////////////
 
-let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
+let $ = require("jquery"),
 	user = require("./user.js"),
 	fbConfig = require("./firebaseConfig.js"),
 	// fbGetter = require("./firebaseGetter.js"),
@@ -51,6 +51,32 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
+omdb.findMovies("batman")
+.then((movieData)=>{
+
+
+//Music History > {view}
+
+
+	(console.log('movieData:', movieData));
+	omdb.parseMovies(movieData)
+	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
+
+});
+
+//enterpress from search-input field
+$("#search-input").keypress(function(e) {
+    if(e.which == 13) {
+        omdb.findMovies($(this).val())
+		.then((movieData)=>{
+		console.log('movieData passed to parse:', movieData);
+		omdb.parseMovies(movieData)
+		.then((moviesArray)=>{});
+
+	});
+  }
+});
+
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
     if(e.which == 13) {
@@ -66,67 +92,69 @@ $("#search-input").keypress(function(e) {
   }
 });
 
+
 //login
 $("#login").click(()=>{
 	console.log('you clicked login');
-	//user.logInGoolge();
-	$("#login").addClass("hide");
-    $("#logout").removeClass("hide");
+	user.logInGoogle();  
 });
 
-//logout
+// //logout
 $("#logout").click(()=>{
-	$("#logout").addClass(".hidden");
-    $("#login").removeClass(".hidden");
+	console.log('you clicked logout');
+	user.logOut();
+	$("#logout").addClass("hidden");
+    $("#login").removeClass("hidden");
 
 });
 
 //show untracked
-$("#untracked").click(()=>{
+$("#untracked").click((event)=>{
+	event.preventDefault();
 	console.log("you clicked untracked");
 	$("#music-history").html("Movie History > Untracked");
-	$("#untracked").toggleClass("active");
-	//hide .row
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
-//show to watch
-$("#to-watch").click(()=>{
+//show unwatched
+$("#to-watch").click((event)=>{
+	event.preventDefault();
 	console.log('you clicked on show to watch');
 	$("#music-history").html("Movie History > To Watch");
-	// $("#to-watch").toggleClass("active");
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //show watched
-$("#watched").click(()=>{
+$("#watched").click((event)=>{
+	event.preventDefault();
 	console.log('you clicked on show-watched');
 	$("#music-history").html("Movie History > Watched");
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //show favorites
-$("#favorites").click(()=>{
+$("#favorites").click((event)=>{
+	event.preventDefault();
 	console.log('you clicked on favorites');
 	$("#music-history").html("Movie History > Favorites");
-	
-
+	$("#movie-nav-bar > li.active").removeClass("active");
+	$(event.target).parent().addClass("active");
 });
 
 //add to watchlist
 $(document).on("click", ".add-to-watchlist", function(){
 	console.log('you clicked on add to watchlist');
-	$(this).gparent(2).addClass("unwatched").removeClass("watched");
+	$(this).parents(".js-card").addClass("unwatched").removeClass("watched");
 });
 
-// //mark as watched
-// $(document).on("click", ".watched", function(){
-// 	console.log('you clicked on watched');
-// 	$(this).gparent(2).addClass("watched").removeClass("unwatched");
-// });
-
-//stars
+// stars
 $(document).on("click", ".rating", function(){
 	console.log('you clicked on a star');
 	console.log($(this));
-	$(this).gparent(3).addClass("watched").removeClass("unwatched");
+	$(this).parents(".js-card").addClass("watched").removeClass("unwatched");
 });
 
 
