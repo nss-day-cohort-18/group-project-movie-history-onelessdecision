@@ -25,6 +25,7 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	dom = require("./domBuilder.js"),
 	fb = require("./firebaseInteraction.js"),
 	omdb = require("./omdbInteraction.js");
+	
 
 
 /////////////////////
@@ -50,19 +51,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
-omdb.findMovies("batman")
-.then((movieData)=>{
-
-
-//Music History > {view}
-
-
-	(console.log('movieData:', movieData));
-	omdb.parseMovies(movieData)
-	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
-
-});
-
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
     if(e.which == 13) {
@@ -70,8 +58,10 @@ $("#search-input").keypress(function(e) {
 		.then((movieData)=>{
 		console.log('movieData passed to parse:', movieData);
 		omdb.parseMovies(movieData)
-		.then((moviesArray)=>{});
-
+		.then((moviesArray)=>{
+			$("#search-input").html("");
+			dom.printCards(moviesArray);
+		});
 	});
   }
 });
