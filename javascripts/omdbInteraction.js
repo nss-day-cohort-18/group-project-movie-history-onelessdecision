@@ -46,7 +46,10 @@ function parseMovies(movieData) {
 				poster : movie.poster_path,
 				title : movie.title,
 				date: movie.release_date,
-				Synopsis: movie.overview,
+				synopsis: movie.overview,
+				tracked: false,
+				watched: false,
+				rating: 0,
 				id : movie.id
 		};
 		moviesArray.push(moviesObject);

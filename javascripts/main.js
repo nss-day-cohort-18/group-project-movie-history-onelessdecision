@@ -2,7 +2,7 @@
 //  	The initial page is a splash page that asks user to log in.
 //		After log in, the page loads data depending on the history of the user.
 //			If the user is new or has no movies, the wrapper loads random movies for the user to see.
-//			If the user has a history, the wrapper loads historical data. 
+//			If the user has a history, the wrapper loads historical data.
 // 		This file sends movie data gleaned from user input to firebase (Build Movie Object).
 
 "use strict";
@@ -25,7 +25,7 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	dom = require("./domBuilder.js"),
 	fb = require("./firebaseInteraction.js"),
 	omdb = require("./omdbInteraction.js");
-	
+
 
 
 /////////////////////
@@ -42,10 +42,20 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // load DOM
 // if (new user or historical user with no movies)
 // 	DOM wrapper displays a message asking user to search and add movies
- 	
+
 // if (historical user with movies saved)
 // 	ajax to firebase with userID
 // 	load movies catalogued in firebase
+
+//Populate cards to dom
+function populateMovies(stuff){
+	
+}
+
+
+
+
+
 
 /////////////////////
 // EVENT HANDLERS  //
@@ -64,18 +74,18 @@ omdb.findMovies("batman")
 
 });
 
-//enterpress from search-input field
-$("#search-input").keypress(function(e) {
-    if(e.which == 13) {
-        omdb.findMovies($(this).val())
-		.then((movieData)=>{
-		console.log('movieData passed to parse:', movieData);
-		omdb.parseMovies(movieData)
-		.then((moviesArray)=>{});
-
-	});
-  }
-});
+// //enterpress from search-input field
+// $("#search-input").keypress(function(e) {
+//     if(e.which == 13) {
+//         omdb.findMovies($(this).val())
+// 		.then((movieData)=>{
+// 		console.log('movieData passed to parse:', movieData);
+// 		omdb.parseMovies(movieData)
+// 		.then((moviesArray)=>{});
+//
+// 	});
+//   }
+// });
 
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
@@ -96,7 +106,7 @@ $("#search-input").keypress(function(e) {
 //login
 $("#login").click(()=>{
 	console.log('you clicked login');
-	user.logInGoogle();  
+	user.logInGoogle();
 });
 
 // //logout
