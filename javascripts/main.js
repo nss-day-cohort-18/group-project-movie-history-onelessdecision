@@ -158,6 +158,22 @@ $(document).on("click", ".rating", function(){
 });
 
 
+////////	Range bar functionality
+
+$("#ratings-bar").on("change", function(){
+	showValue(this.value);
+});
+
+function showValue(newValue){
+	$("#range").html( newValue);
+	console.log("Bar changed!");
+}
+
+
+
+
+
+
 
 //////////////////////
 //BUILD MOVIE OBJECT//
