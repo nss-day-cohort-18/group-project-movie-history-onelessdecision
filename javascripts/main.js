@@ -143,24 +143,6 @@ $(document).on("click", ".rating", function(){
 
 
 
-$(".add-to-watchlist").on("click", function(){
-	console.log("You added the movie!");
-	console.log("parseMovies: ",  omdb.parseMovies);
-	console.log("hi");
-	var movieMake = omdb.parseMovies()
-	.then(function(movieMake){
-		$("#container").html(movieMake);
-		fb.addMovie(movieMake);
-	});
-	
-});
-
-
-
-
-
-
-
 
 ////////	Range bar functionality
 
