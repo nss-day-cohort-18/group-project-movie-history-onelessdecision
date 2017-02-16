@@ -140,6 +140,35 @@ $(document).on("click", ".rating", function(){
 });
 
 
+
+// $("#add-song").click(function() {
+//   console.log("clicked add song");
+//   var songForm = templates.songForm()
+//   .then(function(songForm) {
+//     $(".uiContainer--wrapper").html(songForm);
+//   });
+
+
+
+$(".add-to-watchlist").on("click", function(){
+	console.log("You added the movie!");
+	console.log("parseMovies: ",  omdb.parseMovies);
+	console.log("hi");
+	var movieMake = omdb.parseMovies()
+	.then(function(movieMake){
+		$("#container").html(movieMake);
+		fb.addMovie(movieMake);
+	});
+	
+});
+
+
+
+
+
+
+
+
 ////////	Range bar functionality
 
 $("#ratings-bar").on("change", function(){
