@@ -32,24 +32,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 //LOAD SPLASH PAGE //
 /////////////////////
 
-// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     console.log(error.Message);
-
-// });
-// user.logout();
-// load DOM
-// if (new user or historical user with no movies)
-// 	DOM wrapper displays a message asking user to search and add movies
-
-// if (historical user with movies saved)
-// 	ajax to firebase with userID
-// 	load movies catalogued in firebase
-
-
-
-
 /////////////////////
 // EVENT HANDLERS  //
 /////////////////////
@@ -100,6 +82,8 @@ $("#search-input").keypress(function(e) {
 $("#login").click(()=>{
 	console.log('you clicked login');
 	user.logInGoogle();
+	$("#registeredHeader").removeClass("hidden");
+	$("#splash").addClass("hidden");
 });
 
 // //logout
@@ -107,7 +91,11 @@ $("#logout").click(()=>{
 	console.log('you clicked logout');
 	user.logOut();
 	$("#logout").addClass("hidden");
+	$("#registeredHeader").addClass("hidden");
     $("#login").removeClass("hidden");
+	$("#splash").removeClass("hidden");
+	$("#container").html("");
+
 
 });
 
