@@ -1,4 +1,5 @@
 "use strict";
+
 let $ = require("../lib/node_modules/jquery/dist/jquery.min.js");
 let user = require("./user");
 let fbData = {};
