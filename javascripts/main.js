@@ -47,13 +47,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // 	ajax to firebase with userID
 // 	load movies catalogued in firebase
 
-//Populate cards to dom
-// function populateMovies(stuff){
-// 	$(".container").innerHTML = dom.printCards
-// };
-
-
-
 
 
 
@@ -141,15 +134,6 @@ $("#watched").click((event)=>{
 	event.preventDefault();
 	console.log('you clicked on show-watched');
 	$("#music-history").html("Movie History > Watched");
-	$("#movie-nav-bar > li.active").removeClass("active");
-	$(event.target).parent().addClass("active");
-});
-
-//show favorites
-$("#favorites").click((event)=>{
-	event.preventDefault();
-	console.log('you clicked on favorites');
-	$("#music-history").html("Movie History > Favorites");
 	$("#movie-nav-bar > li.active").removeClass("active");
 	$(event.target).parent().addClass("active");
 });
