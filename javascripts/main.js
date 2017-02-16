@@ -135,15 +135,6 @@ $("#watched").click((event)=>{
 	$(event.target).parent().addClass("active");
 });
 
-//show favorites
-$("#favorites").click((event)=>{
-	event.preventDefault();
-	console.log('you clicked on favorites');
-	$("#music-history").html("Movie History > Favorites");
-	$("#movie-nav-bar > li.active").removeClass("active");
-	$(event.target).parent().addClass("active");
-});
-
 //add to watchlist
 $(document).on("click", ".add-to-watchlist", function(){
 	console.log('you clicked on add to watchlist');
