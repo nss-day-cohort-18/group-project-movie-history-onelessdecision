@@ -61,6 +61,7 @@ $("#search-input").keypress(function(e) {
 		.then((moviesArray)=>{
 			$("#search-input").html("");
 			dom.printCards(moviesArray);
+			addButtonListeners();
 		});
 	});
   }
@@ -116,11 +117,13 @@ $("#watched").click((event)=>{
 });
 
 //add to watchlist
-$("document").on("click", ".add-to-watchlist", function(){
-			let movieObj = fbData.makeObj();
-			fbData.addMovie(movieObj);
-			console.log("you clicked on the add button!", movieObj);
-});
+function addButtonListeners(){
+	$(".add-to-watchlist").click(function(){
+		let movieObj = fbData.makeObj();
+		fbData.addMovie(movieObj);
+		console.log("you clicked the add button", movieObj);
+	});
+}
 
 // stars
 $(document).on("click", ".rating", function(){
