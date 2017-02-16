@@ -8,9 +8,30 @@ $third-color: #929292;
 $link-color: #5B6782;
 
 
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////
 // GENERAL STYLES //
 ////////////////////
+
+body {
+    background-color: #F1EDEE;
+}
+
+.navbar {
+    background-color: #8AA29E;
+}
+
+
 
 .btn {
   color: $primary-color;
@@ -61,6 +82,10 @@ h1 {
 	margin-left: 10px;
 }
 
+#login, #logout {
+    margin-right: 2em;
+}
+
 .list-group button {
 	display: inline-block;
 }
@@ -88,3 +113,31 @@ h2 {
    position: absolute;
 }
 
+/////////// ratings slider
+
+.ratings-bar-div{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+#ratings-bar {
+  margin: 3em 0;
+}
+
+////card styling
+.col-md-4 {
+    max-height: 750px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border:2px solid #686963;
+    background-color: #8AA29E;
+}
+
+.col-md-4 img {
+    max-height: 70%;
+}
+
+.col-md-4 h3 {
+    text-align: center;
+}
