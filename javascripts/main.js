@@ -32,24 +32,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 //LOAD SPLASH PAGE //
 /////////////////////
 
-// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     console.log(error.Message);
-
-// });
-// user.logout();
-// load DOM
-// if (new user or historical user with no movies)
-// 	DOM wrapper displays a message asking user to search and add movies
-
-// if (historical user with movies saved)
-// 	ajax to firebase with userID
-// 	load movies catalogued in firebase
-
-
-
-
 /////////////////////
 // EVENT HANDLERS  //
 /////////////////////
@@ -100,6 +82,8 @@ $("#search-input").keypress(function(e) {
 $("#login").click(()=>{
 	console.log('you clicked login');
 	user.logInGoogle();
+	$("#registeredHeader").removeClass("hidden");
+	$("#splash").addClass("hidden");
 });
 
 // //logout
@@ -107,7 +91,11 @@ $("#logout").click(()=>{
 	console.log('you clicked logout');
 	user.logOut();
 	$("#logout").addClass("hidden");
+	$("#registeredHeader").addClass("hidden");
     $("#login").removeClass("hidden");
+	$("#splash").removeClass("hidden");
+	$("#container").html("");
+
 
 });
 
@@ -157,6 +145,35 @@ let stars = $(document).on("click", ".rating", function(){
 //console logs clicks to get rating values
 //make ajax uptade to watched and now has a rating
 	//
+
+
+// $("#add-song").click(function() {
+//   console.log("clicked add song");
+//   var songForm = templates.songForm()
+//   .then(function(songForm) {
+//     $(".uiContainer--wrapper").html(songForm);
+//   });
+
+
+
+$(".add-to-watchlist").on("click", function(){
+	console.log("You added the movie!");
+	console.log("parseMovies: ",  omdb.parseMovies);
+	console.log("hi");
+	var movieMake = omdb.parseMovies()
+	.then(function(movieMake){
+		$("#container").html(movieMake);
+		fb.addMovie(movieMake);
+	});
+	
+});
+
+
+
+
+
+
+
 
 ////////	Range bar functionality
 

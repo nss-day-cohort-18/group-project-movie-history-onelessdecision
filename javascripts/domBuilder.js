@@ -16,7 +16,7 @@ function printCards(movies) {
 
 			movies.forEach(movie => {
 
-			cards += `<div class="thumbnail col-sm-6 col-md-4 untracked">
+			cards += `<div id="${movie.id}" class="thumbnail col-sm-6 col-md-4 untracked">
 						<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title} poster">
 						<div class="caption">
 							<h3>${movie.title}</h3>
