@@ -1,11 +1,8 @@
-// This file allows us to connect to firebase using data stored in firebaseGetter.js
-
-
 "use strict";
 
 
 let firebase = require("../lib/node_modules/firebase/app.js"),
-    fb = require("./firebaseGetter"),
+    fb = require("./tmdb-getter.js"),
     fbData = fb();
 
 require("../lib/node_modules/firebase/auth.js");

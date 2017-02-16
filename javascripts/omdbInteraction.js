@@ -15,11 +15,12 @@ let $ = require ("../lib/node_modules/jquery/dist/jquery.min.js"),
 //accepts the title argument passed at invocation (value of search-input)
 //we call key.getkey() to plug in the api-key needed
 //movieData is an object which is passed back to the enter-key handler
-function findMovies(titleParameter) {
+function findMovies(movie) {
 	return new Promise((resolve, reject)=>{
 		console.log('calling to omdb');
 		$.ajax({
-			url: `https://api.themoviedb.org/3/search/movie?api_key=${key.getKey().apiKey}&language=en-US&query=${titleParameter}&page=1&include_adult=false`
+			url: `https://api.themoviedb.org/3/search/movie?api_key=205cb9bba5dd5b518208ed4a66d46f6a&language=en-US&query=${movie}`,
+			type: 'GET'
 		}).done((movieData)=>{
 			console.log('movieData recieved:', movieData);
 			resolve(movieData);
@@ -44,6 +45,11 @@ function parseMovies(movieData) {
 
 				poster : movie.poster_path,
 				title : movie.title,
+				date: movie.release_date,
+				synopsis: movie.overview,
+				tracked: false,
+				watched: false,
+				rating: 0,
 				id : movie.id
 		};
 		moviesArray.push(moviesObject);
