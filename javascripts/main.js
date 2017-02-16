@@ -133,14 +133,14 @@ $(document).on("click", ".add-to-watchlist", function(){
 });
 
 // stars
-let stars = $(document).on("click", ".rating", function(){
+let stars = ["str1", "str2", "str3", "str4" ]
+
+$(document).on("click", "stars[i]", function(event){
 	//console.log('you clicked on a star');
-	console.log($(this));
+	console.log($(event.target));
 	$(this).parents(".js-card").addClass("watched").removeClass("unwatched");
-	$("#str1").click( function() {
-		console.log("Star gots it!!");
-	});
-});
+	
+    });
 //add id to stars 
 //console logs clicks to get rating values
 //make ajax uptade to watched and now has a rating

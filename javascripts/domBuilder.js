@@ -24,7 +24,7 @@ function printCards(movies) {
 							<p>${movie.synopsis}</p>
 							<button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button>
 							<div class="rating">
-							    <span id="str1">☆</span><span id="str2">☆</span><span id="str3">☆</span><span id="str4">☆</span><span id="str5">☆</span><span id="str6">☆</span><span id="str7">☆</span><span id="str8">☆</span><span id="str9">☆</span><span id="str10">☆</span>
+							    <span id="str10">☆</span><span id="str9">☆</span><span id="str8">☆</span><span id="str7">☆</span><span id="str6">☆</span><span id="str6">☆</span><span id="str7">☆</span><span id="str8">☆</span><span id="str9">☆</span><span id="str1">☆</span>
 							</div>
 							<button type="button" class="btn btn-default remove-movie">Remove Movie</button>
 						</div>
