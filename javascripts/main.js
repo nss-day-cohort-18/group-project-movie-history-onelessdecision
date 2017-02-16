@@ -47,13 +47,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // 	ajax to firebase with userID
 // 	load movies catalogued in firebase
 
-//Populate cards to dom
-function populateMovies(stuff){
-	
-}
-
-
-
 
 
 
