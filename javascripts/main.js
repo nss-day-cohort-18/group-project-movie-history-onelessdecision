@@ -23,7 +23,7 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 	fbConfig = require("./firebaseConfig.js"),
 	// fbGetter = require("./firebaseGetter.js"),
 	dom = require("./domBuilder.js"),
-	fb = require("./firebaseInteraction.js"),
+	fbData = require("./firebaseInteraction.js"),
 	omdb = require("./omdbInteraction.js");
 
 
@@ -36,18 +36,7 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
-omdb.findMovies("batman")
-.then((movieData)=>{
 
-
-//Music History > {view}
-
-
-	(console.log('movieData:', movieData));
-	omdb.parseMovies(movieData)
-	.then((moviesArray)=>console.log('moviesArray returned form parse:', moviesArray));
-
-});
 
 // //enterpress from search-input field
 // $("#search-input").keypress(function(e) {
@@ -127,9 +116,10 @@ $("#watched").click((event)=>{
 });
 
 //add to watchlist
-$(document).on("click", ".add-to-watchlist", function(){
-	console.log('you clicked on add to watchlist');
-	$(this).parents(".js-card").addClass("unwatched").removeClass("watched");
+$("document").on("click", ".add-to-watchlist", function(){
+			let movieObj = fbData.makeObj();
+			fbData.addMovie(movieObj);
+			console.log("you clicked on the add button!", movieObj);
 });
 
 // stars
