@@ -145,12 +145,18 @@ $(document).on("click", ".add-to-watchlist", function(){
 });
 
 // stars
-$(document).on("click", ".rating", function(){
-	console.log('you clicked on a star');
+let stars = $(document).on("click", ".rating", function(){
+	//console.log('you clicked on a star');
 	console.log($(this));
 	$(this).parents(".js-card").addClass("watched").removeClass("unwatched");
+	$("#str1").click( function() {
+		console.log("Star gots it!!");
+	});
 });
-
+//add id to stars 
+//console logs clicks to get rating values
+//make ajax uptade to watched and now has a rating
+	//
 
 ////////	Range bar functionality
 
