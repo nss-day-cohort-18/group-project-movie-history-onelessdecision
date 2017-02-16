@@ -20,8 +20,8 @@ function printCards(movies) {
 						<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title} poster">
 						<div class="caption">
 							<h3>${movie.title}</h3>
-							<p>Originally released: ${movie.release_date}</p>
-							<p>${movie.overview}</p>
+							<p>Originally released: ${movie.date}</p>
+							<p>${movie.synopsis}</p>
 							<button type="button" class="btn btn-default add-to-watchlist">Add to Watchlist</button>
 							<div class="rating">
 							    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
