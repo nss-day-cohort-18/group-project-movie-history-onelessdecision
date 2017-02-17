@@ -36,21 +36,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
-
-
-// //enterpress from search-input field
-// $("#search-input").keypress(function(e) {
-//     if(e.which == 13) {
-//         omdb.findMovies($(this).val())
-// 		.then((movieData)=>{
-// 		console.log('movieData passed to parse:', movieData);
-// 		omdb.parseMovies(movieData)
-// 		.then((moviesArray)=>{});
-//
-// 	});
-//   }
-// });
-
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
     if(e.which == 13) {
@@ -105,6 +90,11 @@ $("#to-watch").click((event)=>{
 	$("#music-history").html("Movie History > To Watch");
 	$("#movie-nav-bar > li.active").removeClass("active");
 	$(event.target).parent().addClass("active");
+	$("#container").html("");
+	let userPotato = user.getUser();
+	fbData.getUserData(userPotato);
+	potatoBag(userdata);
+
 });
 
 //show watched
@@ -123,6 +113,15 @@ function addButtonListeners(){
 		fbData.addMovie(movieObj);
 		console.log("you clicked the add button", movieObj);
 	});
+}
+
+function potatoBag(potato){
+	var potatoArray = [];
+	for (var prop in potato) {
+		potatoArray.push(prop);
+	}console.log("blah", potatoArray);
+	return potatoArray;
+
 }
 
 // stars

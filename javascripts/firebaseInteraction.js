@@ -34,4 +34,19 @@ fbData.addMovie = function(Obj) {
     });
 };
 
+fbData.getUserData = function (userPotato)
+{
+    return new Promise(
+    function(resolve, reject)
+    {
+        $.ajax(
+        {
+            url: `https://movie-history-70b20.firebaseio.com/movie.json?orderBy="uid"&equalTo="${userPotato}"`
+        })
+        .done(
+            resolve(userData)
+        );
+    });
+};
+
 module.exports = fbData;
