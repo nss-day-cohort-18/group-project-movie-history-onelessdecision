@@ -133,12 +133,18 @@ function potatoBag(potato){
 }
 
 // stars
-$(document).on("click", ".rating", function(){
-	console.log('you clicked on a star');
-	console.log($(this));
-	$(this).parents(".js-card").addClass("watched").removeClass("unwatched");
-});
+let stars = ["str1", "str2", "str3", "str4" ]
 
+$(document).on("click", "stars[i]", function(event){
+	//console.log('you clicked on a star');
+	console.log($(event.target));
+	$(this).parents(".js-card").addClass("watched").removeClass("unwatched");
+	
+    });
+//add id to stars 
+//console logs clicks to get rating values
+//make ajax uptade to watched and now has a rating
+	//
 
 
 // $("#add-song").click(function() {

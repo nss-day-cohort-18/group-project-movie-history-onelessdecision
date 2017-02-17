@@ -12,7 +12,7 @@ function printCards(movies) {
 		let cards = "",
 			counter = 0;
 
-		$("#container").html("");
+		$("#container").html(""); 
 
 			movies.forEach(movie => {
 
@@ -27,7 +27,7 @@ function printCards(movies) {
 							<button movieid="${movie.id}" poster="${movie.poster}" title="${movie.title}" date="${movie.date}" plot="${movie.synopsis}" type="button" class="btn btn-default add-to-watchlist">Add to Watch List</button>
 
 							<div class="rating">
-							    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+							    <span id="str10">☆</span><span id="str9">☆</span><span id="str8">☆</span><span id="str7">☆</span><span id="str6">☆</span><span id="str6">☆</span><span id="str7">☆</span><span id="str8">☆</span><span id="str9">☆</span><span id="str1">☆</span>
 							</div>
 							<button type="button" class="btn btn-default remove-movie">Remove Movie</button>
 						</div>
