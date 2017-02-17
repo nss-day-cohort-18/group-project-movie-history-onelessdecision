@@ -19,7 +19,7 @@ function findMovies(movie) {
 	return new Promise((resolve, reject)=>{
 		console.log('calling to omdb');
 		$.ajax({
-			url: `https://api.themoviedb.org/3/search/movie?api_key=205cb9bba5dd5b518208ed4a66d46f6a&language=en-US&query=${movie}`,
+			url: `https://api.themoviedb.org/3/search/movie?api_key=(yourapikeyhere)&language=en-US&query=${movie}`,
 			type: 'GET'
 		}).done((movieData)=>{
 			console.log('movieData recieved:', movieData);

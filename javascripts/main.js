@@ -92,9 +92,12 @@ $("#to-watch").click((event)=>{
 	$(event.target).parent().addClass("active");
 	$("#container").html("");
 	let userPotato = user.getUser();
-	fbData.getUserData(userPotato);
-	potatoBag(userdata);
-
+	fbData.getUserData(userPotato).then(
+		(userdata) => potatoBag(userdata)	
+		).then(
+		(potatoArray) => {
+			dom.printCards(potatoArray);
+		});
 });
 
 //show watched
@@ -116,12 +119,17 @@ function addButtonListeners(){
 }
 
 function potatoBag(potato){
+	return new Promise((resolve, reject) => { 
+	console.log("this is our potato in a bag", potato);
 	var potatoArray = [];
-	for (var prop in potato) {
-		potatoArray.push(prop);
-	}console.log("blah", potatoArray);
-	return potatoArray;
-
+	potatoArray = Object.values(potato);
+	var potatoObject = {results:potatoArray};
+		
+		//potatoArray.push(potato.prop);
+	console.log("blah", potatoObject);
+	resolve (potatoObject);	
+	});
+	
 }
 
 // stars

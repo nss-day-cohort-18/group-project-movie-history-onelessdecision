@@ -43,9 +43,10 @@ fbData.getUserData = function (userPotato)
         {
             url: `https://movie-history-70b20.firebaseio.com/movie.json?orderBy="uid"&equalTo="${userPotato}"`
         })
-        .done(
-            resolve(userData)
-        );
+        .done(function(userData) {
+            console.log(userPotato);
+            resolve(userData);
+        });
     });
 };
 
