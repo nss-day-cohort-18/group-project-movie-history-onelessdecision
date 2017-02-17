@@ -16,6 +16,8 @@ function printCards(movies) {
 
 			movies.forEach(movie => {
 
+				 console.log(movie);
+
 			cards += `<div id="${movie.id}" class="thumbnail col-sm-6 col-md-4 untracked">
 						<img src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title} poster">
 						<div class="caption">
@@ -35,7 +37,7 @@ function printCards(movies) {
 //every three cards, make a section and prepend it to the container.
 		    if (counter % 3 === 0) {
 		    var rowCount = 1;
-		    $("#container").prepend(`<section class="row">${cards}</section>`);
+		    $("#container").append(`<section class="row">${cards}</section>`);
 		    rowCount ++;
 		    cards = "";
 		   }

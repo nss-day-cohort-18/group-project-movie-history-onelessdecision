@@ -36,21 +36,6 @@ let $ = require("../lib/node_modules/jquery/dist/jquery.min.js"),
 // EVENT HANDLERS  //
 /////////////////////
 
-
-
-// //enterpress from search-input field
-// $("#search-input").keypress(function(e) {
-//     if(e.which == 13) {
-//         omdb.findMovies($(this).val())
-// 		.then((movieData)=>{
-// 		console.log('movieData passed to parse:', movieData);
-// 		omdb.parseMovies(movieData)
-// 		.then((moviesArray)=>{});
-//
-// 	});
-//   }
-// });
-
 //enterpress from search-input field
 $("#search-input").keypress(function(e) {
     if(e.which == 13) {
@@ -105,6 +90,14 @@ $("#to-watch").click((event)=>{
 	$("#music-history").html("Movie History > To Watch");
 	$("#movie-nav-bar > li.active").removeClass("active");
 	$(event.target).parent().addClass("active");
+	$("#container").html("");
+	let userPotato = user.getUser();
+	fbData.getUserData(userPotato).then(
+		(userdata) => potatoBag(userdata)	
+		).then(
+		(potatoArray) => {
+			dom.printCards(potatoArray);
+		});
 });
 
 //show watched
@@ -123,6 +116,20 @@ function addButtonListeners(){
 		fbData.addMovie(movieObj);
 		console.log("you clicked the add button", movieObj);
 	});
+}
+
+function potatoBag(potato){
+	return new Promise((resolve, reject) => { 
+	console.log("this is our potato in a bag", potato);
+	var potatoArray = [];
+	potatoArray = Object.values(potato);
+	var potatoObject = {results:potatoArray};
+		
+		//potatoArray.push(potato.prop);
+	console.log("blah", potatoObject);
+	resolve (potatoObject);	
+	});
+	
 }
 
 // stars
